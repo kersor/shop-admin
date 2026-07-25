@@ -3,7 +3,7 @@ import MainSidebar from "../sidebar/MainSidebar";
 
 export function MainLayout() {
     return (
-        <div>
+        <div className="flex h-screen w-screen">
             <MainSidebar />
             <Outlet />
         </div>
