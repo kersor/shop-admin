@@ -1,20 +1,21 @@
-import React from 'react'
-import { columns, type Payment } from './columns'
+import type { Category } from '@/scripts/types/categories';
+import { columns } from './columns'
 import { DataTable } from './DataTable'
-
-const data: Payment[] = [
-  {
-    id: "728ed52f",
-    amount: 100,
-    status: "pending",
-    email: "m@example.com",
-  },
-];
+import { categoriesApi } from '@/scripts/api/categories'
+import { useQuery } from "@tanstack/react-query";
 
 const PageProduct = () => {
+  const {data} = useQuery<Category[]>({
+    queryKey: ['categories'],
+    queryFn: async () => {
+      const data = await categoriesApi.getAll()
+      return data
+    }
+  })
+
   return (
     <div>
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data ?? []} />
     </div>
   )
 }

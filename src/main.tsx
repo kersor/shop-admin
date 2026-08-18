@@ -4,8 +4,17 @@ import { RouterProvider } from 'react-router-dom'
 import { router } from './routes.tsx'
 import { SidebarProvider } from './components/ui/sidebar.tsx'
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')!).render(
-    <SidebarProvider>
-      <RouterProvider router={router} />
-    </SidebarProvider>
+    <QueryClientProvider client={queryClient}>
+      <SidebarProvider>
+        <RouterProvider router={router} />
+      </SidebarProvider>
+    </QueryClientProvider>
 )
