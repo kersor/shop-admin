@@ -5,7 +5,7 @@ import { categoriesApi } from '@/scripts/api/categories'
 import { useQuery } from "@tanstack/react-query";
 
 const PageProduct = () => {
-  const {data} = useQuery<Category[]>({
+  const { data = [] } = useQuery<Category[]>({
     queryKey: ['categories'],
     queryFn: async () => {
       const data = await categoriesApi.getAll()
@@ -15,7 +15,7 @@ const PageProduct = () => {
 
   return (
     <div>
-        <DataTable columns={columns} data={data ?? []} />
+        <DataTable columns={columns} data={data} />
     </div>
   )
 }
