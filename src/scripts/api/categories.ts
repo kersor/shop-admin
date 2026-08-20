@@ -1,5 +1,5 @@
 
-import type { Category } from "../types/categories"
+import type { Category, CategoryPagination } from "../types/categories"
 import { api } from "./axios"
 
 export const categoriesApi = {
@@ -8,8 +8,8 @@ export const categoriesApi = {
         return data
     },
     
-    async getAll() {
-        const { data } = await api.get<Category[]>('/categories')
+    async getAll(params?: any) {
+        const { data } = await api.get<{data: Category[], pagination: CategoryPagination}>('/categories', { params })
         return data
     }
 }

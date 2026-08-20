@@ -9,7 +9,7 @@ export const PAGES_SIDEBAR = {
             },
             categories: {
                 title: "Категории",
-                href: "/catalog/categories"
+                href: "/catalog/categories?page=1"
             }
         }
     },
