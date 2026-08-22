@@ -8,6 +8,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Spinner } from '@/components/ui/spinner';
 import { Input } from '@/components/ui/input';
 import { debounce } from '@/lib/debounce';
+import PageTitle from '@/components/ui/pageTitle';
 
 export interface PageProductProps {
   page: number
@@ -50,6 +51,7 @@ const PageProductCategories = () => {
 
   return (
     <div className='h-full'>
+      <PageTitle title='Категории' />
       <div className="flex items-center py-4">
         <Input
           onChange={handleSearch}

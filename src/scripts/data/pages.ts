@@ -1,30 +1,35 @@
-export const PAGES_SIDEBAR = {
-    catalog: {
+import type { PagesSidebar } from "./types";
+
+export const PAGES_SIDEBAR: PagesSidebar[] = [
+    {
         title: "Каталог",
         href: "/catalog",
-        children: {
-            products: {
+        children: [
+            {
                 title: "Товары",
-                href: "/catalog/products"
+                href: "/products"
             },
-            categories: {
+            {
                 title: "Категории",
-                href: "/catalog/categories?page=1"
+                href: "/categories",
+                params: {
+                    page: 1
+                }
             }
-        }
+        ]
     },
-    people: {
+    {
         title: "Люди",
         href: "/people",
-        children: {
-            users: {
+        children: [
+            {
                 title: "Пользователи",
-                href: "/people/users"
+                href: "/users"
             },
-            employees: {    
+            {    
                 title: "Сотрудники",
-                href: "/people/employees"
+                href: "/employees"
             }
-        }
+        ]
     }
-}
+]
